@@ -1,4 +1,4 @@
-package com.example.ramennoodletakeout.Controller;
+package com.example.ramennoodletakeout.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/api")
 
 public class UserController {
-//
-//    //hello world
-//    @GetMapping(path = "/hello/")
-//    public String helloWorld() {
-//        return "Hello World";
-//    }
 
 
 }
