@@ -1,15 +1,34 @@
 package com.example.ramennoodletakeout.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
+
 public class User {
-
-
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String userName;
+
+    //email and password access
+    @Column
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-
+    @Column(unique = true)
     private String emailAddress;
+
+    @Column
     private String phoneNumber;
+    @Column
     private String homeAddress;
 
 
@@ -20,6 +39,9 @@ public class User {
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.homeAddress = homeAddress;
+    }
+
+    public User() {
     }
 
     //getters and setters
