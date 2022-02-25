@@ -5,6 +5,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -18,13 +19,23 @@ public class User {
     @Column
     private String userName;
 
+    @Column(unique = true)
+    private String emailAddress;
+
     //email and password access
     @Column
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @Column(unique = true)
-    private String emailAddress;
+    //one and only one user has one user profile
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id") //Connects the table via a foreign key (profile_id)
+    private UserProfile userProfile;
+
+    //a user can have more than one order
+    @OneToMany(mappedBy = "user")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Order> OrderList;
 
 
 
