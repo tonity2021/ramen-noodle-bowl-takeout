@@ -51,7 +51,21 @@ public class UserService {
         }
     }
 
+    //find and authenticate user by email address
+    public User findUserByEmailAddress(String email) {
+        return userRepository.findUserByEmailAddress(email);
+    }
 
+    public ResponseEntity<?> loginUser(LoginRequest loginRequest) {
+
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
+
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getEmail());
+
+        final String JWT = jwtUtils.generateToken(userDetails);
+
+        return ResponseEntity.ok(new LoginResponse(JWT));
+    }
 
 
 }
