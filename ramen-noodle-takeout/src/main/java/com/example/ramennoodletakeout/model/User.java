@@ -35,7 +35,7 @@ public class User {
     //a user can have more than one order
     @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Order> OrderList;
+    private List<Order> orderList;
 
 
 
@@ -46,6 +46,22 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
+
+    public User() {
+    }
+
+
+    //getters and setters
+
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     public UserProfile getUserProfile() {
         return userProfile;
     }
@@ -53,19 +69,6 @@ public class User {
     public void setUserProfile(UserProfile userProfile) {
         this.userProfile = userProfile;
     }
-
-    public List<Order> getOrderList() {
-        return OrderList;
-    }
-
-    public void setOrderList(List<Order> orderList) {
-        OrderList = orderList;
-    }
-
-    public User() {
-    }
-
-    //getters and setters
 
     public Long getId() {
         return id;

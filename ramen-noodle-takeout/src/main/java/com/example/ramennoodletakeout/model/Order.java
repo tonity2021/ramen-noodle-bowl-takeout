@@ -41,8 +41,6 @@ public class Order {
 
     }
 
-
-
     public Long getId() {
         return id;
     }
@@ -50,6 +48,9 @@ public class Order {
     public void setId(Long id) {
         this.id = id;
     }
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
 
     public String getOrder_size() {
         return order_size;
@@ -66,10 +67,6 @@ public class Order {
     public void setSpecial_request(String special_request) {
         this.special_request = special_request;
     }
-    public String getName() {return name;}
-
-    public void setName(String name) {this.name = name;}
-
 
     public User getUser() {
         return user;
