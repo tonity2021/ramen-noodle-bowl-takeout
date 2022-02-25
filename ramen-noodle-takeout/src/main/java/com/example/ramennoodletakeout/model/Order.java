@@ -18,17 +18,15 @@ public class Order {
     private String order_size;
     @Column
     private String special_request;
-    @Column
-    private Double price;
+
 
     public Order() {
     }
 
-    public Order(Long id, String order_size, String special_request, double price) {
+    public Order(Long id, String order_size, String special_request) {
         this.id = id;
         this.order_size = order_size;
         this.special_request = special_request;
-        this.price = price;
 
     }
 
@@ -49,14 +47,6 @@ public class Order {
         this.order_size = order_size;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     public String getSpecial_request() {
         return special_request;
     }
@@ -73,7 +63,6 @@ public class Order {
                 "id=" + id +
                 ", order_size ='" + order_size + '\'' +
                 ", special_request='" + special_request + '\'' +
-                ", price='" + price + '\'' +
                 '}';
     }
 

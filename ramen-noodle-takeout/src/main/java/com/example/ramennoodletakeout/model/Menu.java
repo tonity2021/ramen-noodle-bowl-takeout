@@ -2,6 +2,7 @@ package com.example.ramennoodletakeout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,13 +18,17 @@ public class Menu {
     @Column
     private String food_description;
 
+    @Column
+    private Double price;
+
 
     public Menu() {
     }
 
-    public Menu(Long id, String food_description) {
+    public Menu(Long id, String food_description, Double price) {
         this.id = id;
         this.food_description = food_description;
+        this.price = price;
 
     }
 
@@ -43,11 +48,16 @@ public class Menu {
         this.food_description = food_description;
     }
 
+    public Double getPrice() {return price;}
+
+    public void setPrice(Double price) {this.price = price;}
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", food_description ='" + food_description + '\'' +
+                ", price ='" + price + '\'' +
                 '}';
     }
 
