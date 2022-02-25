@@ -29,7 +29,6 @@ import javax.persistence.*;
 
         @JsonIgnore
         @OneToOne(mappedBy = "userProfile")
-
         private User user;
 
 
@@ -72,6 +71,10 @@ import javax.persistence.*;
 
         public void setPhone_number(String phone_number) { this.phone_number = phone_number; }
 
+        public String getHomeAddress() {return homeAddress;}
+
+        public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}
+
         public User getUser() {
             return user;
         }
@@ -79,10 +82,6 @@ import javax.persistence.*;
         public void setUser(User user) {
             this.user = user;
         }
-
-        public String getHomeAddress() {return homeAddress;}
-
-        public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}
 
         @Override
         public String toString() {

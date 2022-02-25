@@ -3,8 +3,6 @@ package com.example.ramennoodletakeout.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-
-import java.util.Collection;
 import javax.persistence.*;
 
 @Entity
@@ -21,23 +19,28 @@ public class Order {
     private String order_size;
     @Column
     private String special_request;
+    @Column
+    private String name;
 
-    @ManyToMany
-    @JoinTable(name = "menu_item_orders", joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "menu_id", referencedColumnName = "id"))
+
+    //many orders belong to a user
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     @JsonIgnore
-    private Collection<Menu> menu_items;
     private User user;
-
 
     public Order() {
     }
 
-    public Order(Long id, String order_size, String special_request) {
+
+    public Order(Long id, String order_size, String special_request, String name) {
         this.id = id;
         this.order_size = order_size;
         this.special_request = special_request;
+        this.name = name;
 
     }
+
 
 
     public Long getId() {
@@ -63,11 +66,14 @@ public class Order {
     public void setSpecial_request(String special_request) {
         this.special_request = special_request;
     }
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
+
 
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
@@ -79,6 +85,7 @@ public class Order {
                 "id=" + id +
                 ", order_size ='" + order_size + '\'' +
                 ", special_request='" + special_request + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 

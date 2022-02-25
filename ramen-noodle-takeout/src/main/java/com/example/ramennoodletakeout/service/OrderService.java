@@ -72,6 +72,24 @@ public class OrderService {
         }
     }
     //update order
+    public Order updateOrder(Long orderId, Order orderObject) {
+        System.out.println("service calling updateOrder ==>");
+        Optional<Order> order = orderRepository.findById(orderId);
+        if (order.isPresent()) {
+            if (orderObject.getName().equals(order.get().getName())) {
+                System.out.println("Same");
+                throw new InformationExistException("order " + order.get().getName() + " already exists");
+            } else {
+                Order updateOrder= orderRepository.findById(orderId).get();
+                updateOrder.setOrder_size(orderObject.getOrder_size());
+                updateOrder.setSpecial_request(orderObject.getSpecial_request());
+                updateOrder.setName(orderObject.getName());
+                return orderRepository.save(updateOrder );
+            }
+        } else {
+            throw new InformationNotFoundException("order with id " +orderId + " not found");
+        }
+    }
 
     //cancel order
     public Optional<Order> deleteOrder(Long orderId) {
