@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface UserRepository {
 
-//    User findUserById(Long userId);
-//    //to register
+    User findUserById(Long userId);
+    //to register
 //    boolean existsByEmailAddress(String userEmailAddress);
-//
-//    //to login
-//    User findUserByEmailAddress(String userEmailAddress);
+
+    //to login
+    User findUserByEmailAddress(String userEmailAddress);
 
 }

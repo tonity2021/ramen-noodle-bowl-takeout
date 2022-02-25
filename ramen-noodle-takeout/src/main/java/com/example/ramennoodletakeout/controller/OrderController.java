@@ -3,10 +3,9 @@ package com.example.ramennoodletakeout.controller;
 import com.example.ramennoodletakeout.model.Order;
 import com.example.ramennoodletakeout.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -30,6 +29,11 @@ public class OrderController {
     public Order createOrder(@RequestBody Order orderObject) {
         System.out.println("calling createOrder==>");
         return orderService.createOrder(orderObject);
+    }
+    @GetMapping("/orders/")
+    public List<Order> getOrder() {
+        System.out.println("calling getOrders==>");
+        return orderService.getAllOrders();
     }
 
 }
