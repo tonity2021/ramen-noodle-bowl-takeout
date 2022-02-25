@@ -9,7 +9,7 @@ public interface UserRepository {
 
     User findUserById(Long userId);
     //to register
-//    boolean existsByEmailAddress(String userEmailAddress);
+    boolean existsByEmailAddress(String userEmailAddress);
 
     //to login
     User findUserByEmailAddress(String userEmailAddress);
