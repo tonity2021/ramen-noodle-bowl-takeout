@@ -46,6 +46,22 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
+
+    public List<Order> getOrderList() {
+        return OrderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        OrderList = orderList;
+    }
+
     public User() {
     }
 

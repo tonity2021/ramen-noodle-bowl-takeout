@@ -7,11 +7,13 @@ import org.springframework.security.core.userdetails.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findUserById(Long userId);
-    //to register
-//    boolean existsByEmailAddress(String userEmailAddress);
-//
-//    //to login
-//    User findUserByEmailAddress(String userEmailAddress);
+  User findUserById(Long userId);
+//to register
+
+    boolean existsByEmailAddress(String userEmailAddress);
+
+   //to login
+
+    User findUserByEmailAddress(String userEmailAddress);
 
 }
