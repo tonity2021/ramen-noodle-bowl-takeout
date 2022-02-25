@@ -5,13 +5,13 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository {
 
-    User findUserById(Long userId);
-    //to register
-    boolean existsByEmailAddress(String userEmailAddress);
-
-    //to login
-    User findUserByEmailAddress(String userEmailAddress);
+//    User findUserById(Long userId);
+//    //to register
+//    boolean existsByEmailAddress(String userEmailAddress);
+//
+//    //to login
+//    User findUserByEmailAddress(String userEmailAddress);
 
 }
