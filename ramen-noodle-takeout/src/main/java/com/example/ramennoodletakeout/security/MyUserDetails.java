@@ -1,6 +1,5 @@
 package com.example.ramennoodletakeout.security;
 
-import com.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

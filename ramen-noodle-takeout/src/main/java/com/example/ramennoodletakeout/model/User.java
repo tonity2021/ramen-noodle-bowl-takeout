@@ -26,19 +26,13 @@ public class User {
     @Column(unique = true)
     private String emailAddress;
 
-    @Column
-    private String phoneNumber;
-    @Column
-    private String homeAddress;
 
 
-    public User(Long id, String userName, String password, String emailAddress, String phoneNumber, String homeAddress) {
+    public User(Long id, String userName, String password, String emailAddress) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.emailAddress = emailAddress;
-        this.phoneNumber = phoneNumber;
-        this.homeAddress = homeAddress;
     }
 
     public User() {
@@ -78,21 +72,6 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getHomeAddress() {
-        return homeAddress;
-    }
-
-    public void setHomeAddress(String homeAddress) {
-        this.homeAddress = homeAddress;
-    }
 
     @Override
     public String toString() {
@@ -101,8 +80,6 @@ public class User {
                 ", name='" + userName + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", password='" + password + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", homeAddress='" + homeAddress + '\'' +
                 '}';
     }
 

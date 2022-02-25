@@ -24,16 +24,21 @@ import javax.persistence.*;
         @Column
         private String phone_number;
 
+        @Column
+        private String homeAddress;
+
         @JsonIgnore
         @OneToOne(mappedBy = "userProfile")
         private User user;
 
 
-        public UserProfile(Long id, String firstName, String lastName, String phone_number) {
+        public UserProfile(Long id, String firstName, String lastName, String phone_number, String homeAddress) {
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.phone_number = phone_number;
+            this.homeAddress = homeAddress;
+
         }
 
         public UserProfile() {
@@ -73,6 +78,9 @@ import javax.persistence.*;
         public void setUser(User user) {
             this.user = user;
         }
+        public String getHomeAddress() {return homeAddress;}
+
+        public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}
 
         @Override
         public String toString() {
@@ -81,6 +89,7 @@ import javax.persistence.*;
                     ", firstName='" + firstName + '\'' +
                     ", lastName='" + lastName + '\'' +
                     ", phoneNumber ='" + phone_number + '\'' +
+                    ", homeAddress ='" + homeAddress + '\'' +
                     '}';
         }
 
