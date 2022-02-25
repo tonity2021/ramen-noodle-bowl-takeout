@@ -2,6 +2,10 @@ package com.example.ramennoodletakeout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.awt.*;
+import java.util.Collection;
+import javax.management.relation.Role;
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +22,10 @@ public class Order {
     private String order_size;
     @Column
     private String special_request;
+
+    @ManyToMany
+    @JoinTable(name = "menu_item_orders", joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "menu_id", referencedColumnName = "id"))
+    private Collection<Menu> menu_items;
 
 
     public Order() {
