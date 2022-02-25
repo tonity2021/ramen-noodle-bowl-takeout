@@ -29,6 +29,7 @@ import javax.persistence.*;
 
         @JsonIgnore
         @OneToOne(mappedBy = "userProfile")
+
         private User user;
 
 
@@ -78,6 +79,7 @@ import javax.persistence.*;
         public void setUser(User user) {
             this.user = user;
         }
+
         public String getHomeAddress() {return homeAddress;}
 
         public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}

@@ -1,4 +1,4 @@
-package com.example.ramennoodletakeout.request;
+package com.example.ramennoodletakeout.model.request;
 
 
 public class LoginRequest {

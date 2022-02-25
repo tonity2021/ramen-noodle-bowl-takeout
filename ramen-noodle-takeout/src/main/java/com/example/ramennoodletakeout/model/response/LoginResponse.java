@@ -1,4 +1,4 @@
-package com.example.ramennoodletakeout.response;
+package com.example.ramennoodletakeout.model.response;
 
 public class LoginResponse {
 

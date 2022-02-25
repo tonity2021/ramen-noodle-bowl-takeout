@@ -54,6 +54,7 @@ public class MyUserDetails implements UserDetails {
     public User getUser() {
         return user;
     }
+
 }
 
 

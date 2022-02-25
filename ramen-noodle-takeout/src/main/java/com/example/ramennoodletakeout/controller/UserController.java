@@ -1,6 +1,6 @@
 package com.example.ramennoodletakeout.controller;
 
-import com.example.ramennoodletakeout.request.LoginRequest;
+import com.example.ramennoodletakeout.model.request.LoginRequest;
 import com.example.ramennoodletakeout.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

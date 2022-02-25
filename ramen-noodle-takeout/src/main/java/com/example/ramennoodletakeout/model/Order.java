@@ -1,11 +1,10 @@
 package com.example.ramennoodletakeout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.awt.*;
+
+
 import java.util.Collection;
-import javax.management.relation.Role;
 import javax.persistence.*;
 
 @Entity
@@ -25,7 +24,9 @@ public class Order {
 
     @ManyToMany
     @JoinTable(name = "menu_item_orders", joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "menu_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Collection<Menu> menu_items;
+    private User user;
 
 
     public Order() {
@@ -63,11 +64,18 @@ public class Order {
         this.special_request = special_request;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Order{" +
                 "id=" + id +
                 ", order_size ='" + order_size + '\'' +
                 ", special_request='" + special_request + '\'' +

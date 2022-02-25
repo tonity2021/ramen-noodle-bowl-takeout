@@ -30,10 +30,10 @@ public class OrderController {
         System.out.println("calling createOrder==>");
         return orderService.createOrder(orderObject);
     }
-//    @GetMapping("/orders/")
-//    public List<Order> getOrder() {
-//        System.out.println("calling getOrders==>");
-////        return orderService.getAllOrders();
-//    }
+    @GetMapping("/orders/")
+    public List<Order> getOrder() {
+        System.out.println("calling getOrders==>");
+        return orderService.getAllOrders();
+    }
 
 }
