@@ -4,6 +4,7 @@ import com.example.ramennoodletakeout.exceptions.InformationExistException;
 import com.example.ramennoodletakeout.repository.UserRepository;
 import com.example.ramennoodletakeout.request.LoginRequest;
 import com.example.ramennoodletakeout.response.LoginResponse;
+import com.example.ramennoodletakeout.security.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
