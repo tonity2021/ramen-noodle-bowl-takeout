@@ -9,8 +9,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-
 public class User {
+
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,15 +23,15 @@ public class User {
     @Column(unique = true)
     private String emailAddress;
 
-    //email and password access
     @Column
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    //one and only one user has one user profile
+//    one and only one user has one profile
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", referencedColumnName = "id") //Connects the table via a foreign key (profile_id)
     private UserProfile userProfile;
+
 
     //a user can have more than one order
     @OneToMany(mappedBy = "user")
@@ -38,28 +39,45 @@ public class User {
     private List<Order> orderList;
 
 
-
-    public User(Long id, String userName, String password, String emailAddress) {
+    public User(Long id, String userName, String emailAddress, String password) {
         this.id = id;
         this.userName = userName;
-        this.password = password;
         this.emailAddress = emailAddress;
+        this.password = password;
     }
-
-
     public User() {
     }
 
-
     //getters and setters
 
-
-    public List<Order> getOrderList() {
-        return orderList;
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Long getId() {
+        return id;
     }
 
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public UserProfile getUserProfile() {
@@ -70,36 +88,12 @@ public class User {
         this.userProfile = userProfile;
     }
 
-    public Long getId() {
-        return id;
+    public List<Order> getOrderList() {
+        return orderList;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 
 
@@ -112,5 +106,4 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
-
 }

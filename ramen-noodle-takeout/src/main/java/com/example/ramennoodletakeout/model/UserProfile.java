@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-
     @Entity
     @Table(name = "profiles") //Table column
     public class UserProfile {
@@ -24,19 +23,19 @@ import javax.persistence.*;
         private String phone_number;
 
         @Column
-        private String homeAddress;
+        private String home_address;
 
         @JsonIgnore
         @OneToOne(mappedBy = "userProfile")
         private User user;
 
 
-        public UserProfile(Long id, String firstName, String lastName, String phone_number, String homeAddress) {
+        public UserProfile(Long id, String firstName, String lastName, String phone_number, String home_address) {
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.phone_number = phone_number;
-            this.homeAddress = homeAddress;
+            this.home_address= home_address;
 
         }
 
@@ -70,9 +69,9 @@ import javax.persistence.*;
 
         public void setPhone_number(String phone_number) { this.phone_number = phone_number; }
 
-        public String getHomeAddress() {return homeAddress;}
+        public String getHomeAddress() {return home_address;}
 
-        public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}
+        public void setHomeAddress(String homeAddress) {this.home_address = home_address;}
 
         public User getUser() {
             return user;
@@ -89,7 +88,7 @@ import javax.persistence.*;
                     ", firstName='" + firstName + '\'' +
                     ", lastName='" + lastName + '\'' +
                     ", phoneNumber ='" + phone_number + '\'' +
-                    ", homeAddress ='" + homeAddress + '\'' +
+                    ", homeAddress ='" + home_address + '\'' +
                     '}';
         }
 

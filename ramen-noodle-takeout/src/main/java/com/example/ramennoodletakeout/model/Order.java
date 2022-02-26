@@ -29,9 +29,6 @@ public class Order {
     @JsonIgnore
     private User user;
 
-    public Order() {
-    }
-
 
     public Order(Long id, String order_size, String special_request, String name) {
         this.id = id;
@@ -40,6 +37,10 @@ public class Order {
         this.name = name;
 
     }
+
+    public Order() {
+    }
+
 
     public Long getId() {
         return id;

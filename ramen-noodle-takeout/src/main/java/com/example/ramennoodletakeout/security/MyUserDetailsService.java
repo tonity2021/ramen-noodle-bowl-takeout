@@ -1,9 +1,10 @@
 package com.example.ramennoodletakeout.security;
 
 
+import com.example.ramennoodletakeout.model.User;
 import com.example.ramennoodletakeout.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;

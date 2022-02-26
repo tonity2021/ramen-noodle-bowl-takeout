@@ -1,5 +1,6 @@
 package com.example.ramennoodletakeout.repository;
 
+
 import com.example.ramennoodletakeout.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -18,3 +19,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     Order findByIdAndUserId(Long OrderId, Long UserId);
 
 }
+
+
+

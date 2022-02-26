@@ -26,7 +26,6 @@ public class ProfileController {
         this.profileService= profileService;
     }
 
-
     //create a user profile
     @PostMapping("/users/profile/")
     public UserProfile createProfile(@RequestBody UserProfile userProfileObject) {

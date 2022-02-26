@@ -46,12 +46,12 @@ public class OrderService {
 
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        System.out.println(userDetails.getUser().getId());
+//        System.out.println(userDetails.getUser().getId());
 
         List<Order> order = orderRepository.findByUserId(userDetails.getUser().getId());
 
         if (order.isEmpty()) {
-            throw new InformationNotFoundException("no orders found for user id " + userDetails.getUser().getId() + ".");
+            throw new InformationNotFoundException("no orders id " + userDetails.getUser().getId() + ".");
         } else {
             return order;
         }

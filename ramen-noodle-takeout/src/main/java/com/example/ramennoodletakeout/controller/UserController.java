@@ -1,11 +1,12 @@
 package com.example.ramennoodletakeout.controller;
 
+import com.example.ramennoodletakeout.model.User;
 import com.example.ramennoodletakeout.model.request.LoginRequest;
 import com.example.ramennoodletakeout.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.User;
+
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

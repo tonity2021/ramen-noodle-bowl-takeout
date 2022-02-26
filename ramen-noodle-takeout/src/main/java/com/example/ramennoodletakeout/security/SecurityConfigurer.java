@@ -42,7 +42,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // only allowed urls without JWT
         http.authorizeRequests().antMatchers(
-                        "/auth/users/", "/auth/users/login/", "/auth/users/register/", "/api/hello/", "/auth/users/profile/").permitAll()
+                        "/auth/users/", "/auth/users/login/", "/auth/users/register/", "/api/hello-world/", "/auth/users/profile/").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -55,7 +55,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    // fetching data for user for authentication
+     //fetching data for user for authentication
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);

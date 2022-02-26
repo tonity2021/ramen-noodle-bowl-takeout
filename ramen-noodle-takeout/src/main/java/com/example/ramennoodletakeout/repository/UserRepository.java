@@ -1,14 +1,15 @@
 package com.example.ramennoodletakeout.repository;
 //done
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.User;
 
+import com.example.ramennoodletakeout.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-  User findUserById(Long userId);
-//to register
+//  User findUserById(Long userId);
+
+  //to register
 
     boolean existsByEmailAddress(String userEmailAddress);
 
@@ -17,3 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findUserByEmailAddress(String userEmailAddress);
 
 }
+
+
+
