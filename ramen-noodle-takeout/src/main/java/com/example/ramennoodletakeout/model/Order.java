@@ -23,7 +23,7 @@ public class Order {
     private String name;
     @Column
     private String foodDescription;
-    @Column
+
 
 
     //many orders belong to a user

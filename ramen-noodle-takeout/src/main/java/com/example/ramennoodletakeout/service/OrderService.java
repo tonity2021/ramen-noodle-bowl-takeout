@@ -81,8 +81,8 @@ public class OrderService {
                 throw new InformationExistException("order " + order.get().getName() + " already exists");
             } else {
                 Order updateOrder= orderRepository.findById(orderId).get();
-                updateOrder.setOrder_size(orderObject.getOrder_size());
-                updateOrder.setSpecial_request(orderObject.getSpecial_request());
+                updateOrder.setOrderSize(orderObject.getOrderSize());
+                updateOrder.setSpecialRequest(orderObject.getSpecialRequest());
                 updateOrder.setName(orderObject.getName());
                 return orderRepository.save(updateOrder );
             }
