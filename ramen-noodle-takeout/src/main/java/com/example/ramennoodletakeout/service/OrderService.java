@@ -64,29 +64,22 @@ public class OrderService {
                 .getPrincipal();
         Order order = orderRepository.findByUserIdAndName(
                 userDetails.getUser().getId(), orderObject.getName());
-        if (order != null) {
-            throw new InformationExistException("order with name " + order.getName() + " already exists");
-        } else {
             orderObject.setUser(userDetails.getUser());
             return orderRepository.save(orderObject);
-        }
     }
     //update order
     public Order updateOrder(Long orderId, Order orderObject) {
         System.out.println("service calling updateOrder ==>");
         Optional<Order> order = orderRepository.findById(orderId);
         if (order.isPresent()) {
-            if (orderObject.getName().equals(order.get().getName())) {
-                System.out.println("Same");
-                throw new InformationExistException("order " + order.get().getName() + " already exists");
-            } else {
+
                 Order updateOrder= orderRepository.findById(orderId).get();
                 updateOrder.setOrderSize(orderObject.getOrderSize());
                 updateOrder.setSpecialRequest(orderObject.getSpecialRequest());
                 updateOrder.setName(orderObject.getName());
                 return orderRepository.save(updateOrder );
             }
-        } else {
+         else {
             throw new InformationNotFoundException("order with id " +orderId + " not found");
         }
     }
