@@ -23,6 +23,8 @@ public class Order {
     private String name;
     @Column
     private String foodDescription;
+    @Column
+    private boolean addToFavorites;
 
 
 
@@ -34,13 +36,16 @@ public class Order {
     private User user;
 
 
-    public Order(Long id, String orderSize, String specialRequest, String name, String foodDescription) {
+
+    public Order(Long id, String orderSize, String specialRequest, String name, String foodDescription, Boolean addToFavorites) {
 
         this.id = id;
         this.orderSize = orderSize;
         this.specialRequest = specialRequest;
         this.name = name; //i.e. spicy kimchi
         this.foodDescription = foodDescription;
+        this.addToFavorites = addToFavorites;
+
 
     }
 
@@ -86,6 +91,13 @@ public class Order {
 
     public void setFoodDescription(String foodDescription) {
         this.foodDescription = foodDescription;
+    }
+    public boolean isAddToFavorites() {
+        return addToFavorites;
+    }
+
+    public void setAddToFavorites(boolean addToFavorites) {
+        this.addToFavorites = addToFavorites;
     }
 
     public User getUser() {
