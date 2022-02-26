@@ -46,7 +46,7 @@ public class OrderService {
 
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-//        System.out.println(userDetails.getUser().getId());
+        System.out.println(userDetails.getUser().getId());
 
         List<Order> order = orderRepository.findByUserId(userDetails.getUser().getId());
 

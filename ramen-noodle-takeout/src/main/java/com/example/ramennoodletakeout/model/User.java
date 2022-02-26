@@ -27,7 +27,7 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-//    one and only one user has one profile
+    //one and only one user has one profile
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", referencedColumnName = "id") //Connects the table via a foreign key (profile_id)
     private UserProfile userProfile;

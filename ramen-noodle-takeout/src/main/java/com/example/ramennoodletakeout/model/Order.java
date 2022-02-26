@@ -16,25 +16,31 @@ public class Order {
     private Long id;
 
     @Column
-    private String order_size;
+    private String orderSize;
     @Column
-    private String special_request;
+    private String specialRequest;
     @Column
     private String name;
+    @Column
+    private String foodDescription;
+    @Column
 
 
     //many orders belong to a user
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
+
     private User user;
 
 
-    public Order(Long id, String order_size, String special_request, String name) {
+    public Order(Long id, String orderSize, String specialRequest, String name, String foodDescription) {
+
         this.id = id;
-        this.order_size = order_size;
-        this.special_request = special_request;
-        this.name = name;
+        this.orderSize = orderSize;
+        this.specialRequest = specialRequest;
+        this.name = name; //i.e. spicy kimchi
+        this.foodDescription = foodDescription;
 
     }
 
@@ -49,29 +55,43 @@ public class Order {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getName() {return name;}
 
-    public void setName(String name) {this.name = name;}
-
-    public String getOrder_size() {
-        return order_size;
+    public String getName() {
+        return name;
     }
 
-    public void setOrder_size(String order_size) {
-        this.order_size = order_size;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSpecial_request() {
-        return special_request;
+    public String getOrderSize() {
+        return orderSize;
     }
 
-    public void setSpecial_request(String special_request) {
-        this.special_request = special_request;
+    public void setOrderSize(String orderSize) {
+        this.orderSize = orderSize;
+    }
+
+    public String getSpecialRequest() {
+        return specialRequest;
+    }
+
+    public void setSpecialRequest(String specialRequest) {
+        this.specialRequest = specialRequest;
+    }
+
+    public String getFoodDescription() {
+        return foodDescription;
+    }
+
+    public void setFoodDescription(String foodDescription) {
+        this.foodDescription = foodDescription;
     }
 
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -81,8 +101,9 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", order_size ='" + order_size + '\'' +
-                ", special_request='" + special_request + '\'' +
+                ", orderSize ='" + orderSize + '\'' +
+                ", specialRequest='" + specialRequest + '\'' +
+                ", foodDescription ='" + foodDescription + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
