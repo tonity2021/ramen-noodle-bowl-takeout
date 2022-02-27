@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/api")
 
 public class OrderController {
@@ -20,10 +21,10 @@ public class OrderController {
         this.orderService = orderService;
     }
     //hello world
-    @GetMapping(path = "/hello/")
-    public String helloWorld() {
-        return "Hello World";
-    }
+//    @GetMapping(path = "/hello/")
+//    public String helloWorld() {
+//        return "Hello World";
+//    }
 
     //create a new order
     @PostMapping("/order/")
@@ -43,14 +44,15 @@ public class OrderController {
     @GetMapping(path = "/order/{orderId}")
     public Optional<Order> getOrder(@PathVariable Long orderId) {
         return orderService.getOrder(orderId);
+
     }
+
     //modify order by ID
     @PutMapping("/order/{orderId}/")
     public Order updateOrder(@PathVariable(value = "orderId") Long orderId, @RequestBody Order orderObject) {
         System.out.println("calling updateOrder ==>");
         return orderService.updateOrder(orderId, orderObject);
     }
-
 
     //delete order by ID
     @DeleteMapping("/order/{orderId}")
