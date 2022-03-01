@@ -42,7 +42,7 @@ public class Order {
         this.id = id;
         this.orderSize = orderSize;
         this.specialRequest = specialRequest;
-        this.name = name; //i.e. spicy kimchi
+        this.name = name;
         this.foodDescription = foodDescription;
         this.addToFavorites = addToFavorites;
 

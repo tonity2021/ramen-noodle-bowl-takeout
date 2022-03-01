@@ -1,6 +1,5 @@
 package com.example.ramennoodletakeout.security;
 
-
 import com.example.ramennoodletakeout.model.User;
 import com.example.ramennoodletakeout.service.UserService;
 

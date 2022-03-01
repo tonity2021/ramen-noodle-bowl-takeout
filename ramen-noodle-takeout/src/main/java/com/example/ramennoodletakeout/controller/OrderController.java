@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/api")
 
 public class OrderController {
+
     private OrderService orderService;
 
 
@@ -20,11 +22,6 @@ public class OrderController {
     public void setOrderService(OrderService orderService) {
         this.orderService = orderService;
     }
-    //hello world
-//    @GetMapping(path = "/hello/")
-//    public String helloWorld() {
-//        return "Hello World";
-//    }
 
     //create a new order
     @PostMapping("/order/")
