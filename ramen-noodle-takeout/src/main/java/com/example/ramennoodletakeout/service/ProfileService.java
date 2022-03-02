@@ -5,7 +5,6 @@ import com.example.ramennoodletakeout.model.UserProfile;
 import com.example.ramennoodletakeout.repository.UserProfileRepository;
 import com.example.ramennoodletakeout.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service

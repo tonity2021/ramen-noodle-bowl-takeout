@@ -22,8 +22,6 @@ public class Order {
     @Column
     private String name;
     @Column
-    private String foodDescription;
-    @Column
     private boolean addToFavorites;
 
 
@@ -37,16 +35,12 @@ public class Order {
 
 
 
-    public Order(Long id, String orderSize, String specialRequest, String name, String foodDescription, Boolean addToFavorites) {
+    public Order(Long id, String orderSize, String specialRequest, String name, Boolean addToFavorites) {
 
         this.id = id;
         this.orderSize = orderSize;
         this.specialRequest = specialRequest;
         this.name = name;
-        this.foodDescription = foodDescription;
-        this.addToFavorites = addToFavorites;
-
-
     }
 
     public Order() {
@@ -85,13 +79,6 @@ public class Order {
         this.specialRequest = specialRequest;
     }
 
-    public String getFoodDescription() {
-        return foodDescription;
-    }
-
-    public void setFoodDescription(String foodDescription) {
-        this.foodDescription = foodDescription;
-    }
     public boolean isAddToFavorites() {
         return addToFavorites;
     }
@@ -115,7 +102,6 @@ public class Order {
                 "id=" + id +
                 ", orderSize ='" + orderSize + '\'' +
                 ", specialRequest='" + specialRequest + '\'' +
-                ", foodDescription ='" + foodDescription + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }

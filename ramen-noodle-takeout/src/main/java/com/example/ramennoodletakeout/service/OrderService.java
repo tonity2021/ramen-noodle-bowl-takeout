@@ -5,10 +5,10 @@ import com.example.ramennoodletakeout.exceptions.InformationNotFoundException;
 import com.example.ramennoodletakeout.model.Order;
 import com.example.ramennoodletakeout.repository.OrderRepository;
 import com.example.ramennoodletakeout.repository.UserRepository;
-import com.example.ramennoodletakeout.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +30,16 @@ public class OrderService {
         this.userRepository = userRepository;
     }
 
+// create a new order
+    public Order createOrder(@RequestBody Order orderObject) {
+        System.out.println("calling createOrder");
+        Order order = orderRepository.findByName(orderObject.getName());
+        if (order != null) {
+            throw new InformationExistException("order for " + order.getName() + " already exists");
+        } else {
+            return orderRepository.save(orderObject);
+        }
+    }
 
     //get order by Id
     public Optional getOrder(Long orderId) {
@@ -41,46 +51,30 @@ public class OrderService {
             throw new InformationNotFoundException("order with id " + orderId + " not found");
         }
     }
+
     //get all orders
     public List<Order> getAllOrders() {
-
-        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        System.out.println(userDetails.getUser().getId());
-
-        List<Order> order = orderRepository.findByUserId(userDetails.getUser().getId());
-
-        if (order.isEmpty()) {
-            throw new InformationNotFoundException("no orders id " + userDetails.getUser().getId() + ".");
-        } else {
-            return order;
-        }
-
+        System.out.println("calling getAllOrders");
+        return orderRepository.findAll();
     }
-    //create a new order
-    public Order createOrder(Order orderObject) {
-        System.out.println("service calling createOrder ==>");
-        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
-                .getPrincipal();
-        Order order = orderRepository.findByUserIdAndName(
-                userDetails.getUser().getId(), orderObject.getName());
-            orderObject.setUser(userDetails.getUser());
-            return orderRepository.save(orderObject);
-    }
+
     //update order
     public Order updateOrder(Long orderId, Order orderObject) {
         System.out.println("service calling updateOrder ==>");
         Optional<Order> order = orderRepository.findById(orderId);
         if (order.isPresent()) {
-
-                Order updateOrder= orderRepository.findById(orderId).get();
+            if (orderObject.getName().equals(order.get().getName())) {
+                System.out.println("Same");
+                throw new InformationExistException("order " + order.get().getName() + " already exists");
+            } else {
+                Order updateOrder = orderRepository.findById(orderId).get();
                 updateOrder.setOrderSize(orderObject.getOrderSize());
                 updateOrder.setSpecialRequest(orderObject.getSpecialRequest());
                 updateOrder.setName(orderObject.getName());
-                return orderRepository.save(updateOrder );
+                return orderRepository.save(updateOrder);
             }
-         else {
-            throw new InformationNotFoundException("order with id " +orderId + " not found");
+        } else {
+            throw new InformationNotFoundException("order with id " + orderId + " not found");
         }
     }
 
@@ -96,7 +90,5 @@ public class OrderService {
             throw new InformationNotFoundException("order with id " + orderId + " not found");
         }
     }
-
-
 
 }
