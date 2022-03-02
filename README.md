@@ -1,7 +1,5 @@
 # ramen-noodle-takeout-API
-[[[[![vegan-ramen-14](https://user-images.githubusercontent.com/94870846/156311784-23044a32-b32c-4754-8680-f10f175a5f82.jpg)](https://img.freepik.com/free-vector/ramen_49124-14.jpg?size=338&ext=jpg)](https://img.freepik.com/free-vector/ramen_49124-14.jpg?size=338&ext=jpg)](https://img.freepik.com/free-vector/ramen-is-typical-food-from-japan_269774-23.jpg?size=338&ext=jpg)
-](https://img.freepik.com/free-vector/ramen-is-typical-food-from-japan_269774-23.jpg?size=338&ext=jpg)
-
+![cute-ramen-noodle-cartoon-icon-illustration_138676-2580](https://user-images.githubusercontent.com/94870846/156315252-5612cb44-12b4-446e-a631-25e8a3eb9a04.jpg)
 ## Project Concept:
 
 This app represents a fast food online reservation system which allows a user to create a ramen noodle bowl to-go order, and view their order via HTTP requests. After creating an order, a user can retrieve their order (by an id order number), update, and delete their order.  On the back-end, this app allows for full CRUD functionality and user information is stored in a PostgreSQL database facilitated by PGAdmin.  
