@@ -37,10 +37,10 @@ GitBash~
 
 ![image](https://user-images.githubusercontent.com/94870846/152495215-90a3a232-2105-42fd-9a70-9d169a3ca08e.png)
 
-1.)	 One challenge I had was making sure that my methods in my Reservation Service class matched the method names and parameters set up in my interface class (Reservation Repository). 
-<br />
-2.)	Another challenge was making sure to focus on separation of concerns.  For example, I had to create different classes for my services and different classes for my repositories.  In this way, each model has their own package and set of classes and the coding/logic doesn’t get jumbled up or confused. <br />
+1.)	 One challenge I had was getting past CORS origin errors in order for my front-end port to work with my back-end port for HTTP requests. <br />
 
-3.)	 I had to remember that the JWT token is established after a user has logged-in with their password and username (not when the user has signed up) in order to authenticate and protect the client/server exchange. <br />
+2.)	Another issue was facing the challenge of deploying a full-stack project and the harsh learning curve that came with it.<br />
 
-4.)	 Last, I had to remember the importance of adding JSON “write only” Access to my user table in order to not return the password in Postman after the user has registered with email, username, and password. <br />
+3.)	In addition, a major hurddle was trying to implement user authentication (registering/logging-in) a user on the front-end, although I was able to implement in Java.  <br />
+
+4.)	Last, the task of connecting my front-end Angular app with SpringBoot for the two to communicate effectively, was a major challenge.  <br />
