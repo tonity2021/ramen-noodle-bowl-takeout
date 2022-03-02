@@ -28,7 +28,7 @@ GitBash~
 ![image](https://user-images.githubusercontent.com/94870846/152494729-699a44be-502e-4648-88b4-107e2e80002e.png)
 
 •	As a user I can create a new ramen noodle bowl order. <br />
-•	As a user I can search for my order by order Id to ensure I’m referencing the correct to-go order.  <br />
+•	As a user I can search for my order via order Id to ensure I’m referencing the correct to-go order.  <br />
 •	As a user I can retrieve and view all of my orders when I have ordered multiple times.  <br />
 •	As a user I can update/modify my order if I change my mind about anything associated with my order.  <br />
 •	As a user I can cancel my order if I decide I don't want to order a ramnen bowl.  <br />
