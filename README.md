@@ -43,6 +43,6 @@ GitBash~
 
 2.)	Another issue was facing the challenge of deploying a full-stack project and the harsh learning curve that came with it.<br />
 
-3.)	In addition, a major hurddle was trying to implement user authentication (registering/logging-in) a user on the front-end, although I was able to implement in Java.  <br />
+3.)	In addition, a major hurdle was trying to implement user authentication (registering/logging-in) for a user on the front-end, although I was able to implement it in on the back-end.  <br />
 
 4.)	Last, the task of connecting my front-end Angular app with SpringBoot for the two to communicate effectively, was a major challenge.  <br />
