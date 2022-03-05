@@ -33,7 +33,7 @@ GitBash~
 •	As a user I can search for my order via order Id to ensure I’m referencing the correct to-go order.  <br />
 •	As a user I can retrieve and view all of my orders when I have ordered multiple times.  <br />
 •	As a user I can update/modify my order if I change my mind about anything associated with my order.  <br />
-•	As a user I can cancel my order if I decide I don't want to order a ramnen bowl.  <br />
+•	As a user I can cancel my order if I decide I don't want to order a ramen bowl.  <br />
 
 ## Challenges
 
